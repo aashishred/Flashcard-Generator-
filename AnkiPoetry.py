@@ -3,7 +3,7 @@
 # Format: The input is plain text. The first line is the title of the poem, the second line is the author, and subsequent lines are the poem.
 
 # Usage:
-# Run by typing the following into the terminal: cat poem.txt | python ./PoetryAnki.py
+# Run by typing the following into the terminal: cat poem.txt | python ./AnkiPoetry.py
 # This creates a file called "output.csv" in the same folder.
 # Go to Anki -> File -> Import -> Navigate to output.csv ...
 # ... Choose the relevant deck -> Fields separated by: Comma -> Allow HTML in fields ...
