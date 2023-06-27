@@ -10,7 +10,7 @@
 # ... Field 1 of file is mapped to Front; Field 2 of file is mapped to Back -> Import
 
 # Disclaimers:
-# Code/Idea/Implementation largely not my own, but put together using:
+# Implementation and idea drawn heavily from the following (wanting to combine elements of each): 
 # https://github.com/quentinsf/poem2anki and https://github.com/eudoxia0/spaced-repetition-tools
 # ... with the aid of Bing AI.
 # Code as it exists below causes certain characters (', ", -, etc.) to be shown as question marks in flashcards.
