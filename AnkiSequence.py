@@ -16,8 +16,8 @@
 # ... Choose the relevant deck -> Fields separated by: Comma -> Allow HTML in fields ...
 # ... Field 1 of file is mapped to Front; Field 2 of file is mapped to Back -> Import
 
-# Disclaimers: See disclaimers in AnkiPoetry.py
-# This program was put together by using Bing AI to adapt that script to the synopsis above.
+# Disclaimers: 
+# See disclaimers in AnkiPoetry.py: this program was put together by using Bing AI to adapt that script to the synopsis above.
 
 import sys
 import csv # import the csv module
