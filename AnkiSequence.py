@@ -10,13 +10,13 @@
 # Format: The input is plain text. The first line is the title of the sequence, and subsequent lines are the sequence.
 
 # Usage:
-# Run by typing the following into the terminal: cat sequence.txt | python ./SequenceAnki.py
+# Run by typing the following into the terminal: cat sequence.txt | python ./AnkiSequence.py
 # This creates a file called "output.csv" in the same folder.
 # Go to Anki -> File -> Import -> Navigate to output.csv ...
 # ... Choose the relevant deck -> Fields separated by: Comma -> Allow HTML in fields ...
 # ... Field 1 of file is mapped to Front; Field 2 of file is mapped to Back -> Import
 
-# Disclaimers: See disclaimers in PoetryAnki.py
+# Disclaimers: See disclaimers in AnkiPoetry.py
 # This program was put together by using Bing AI to adapt that script to the synopsis above.
 
 import sys
