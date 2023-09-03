@@ -9,14 +9,10 @@
 # ... Choose the relevant deck -> Fields separated by: Comma -> Allow HTML in fields ...
 # ... Field 1 of file is mapped to Front; Field 2 of file is mapped to Back -> Import
 
-# NB: Code as it exists below causes certain characters (', ", -, etc.) to be shown as question marks in flashcards.
-
-
 import argparse
 import sys
 from collections import deque
 import csv # import the csv module
-import html # import the html module
 
 # Define a class for flashcard
 class Flashcard:
@@ -29,24 +25,22 @@ class Flashcard:
     def __str__(self):
         return f"<h4 style='margin: 0.25em;'>{self.title}</h4><h5 style='margin: 0.2em 0.2em 1.0em 0.2em;'>{self.author}</h5>{self.front}"
 
-# Define a function to escape special characters in HTML
-def escape_html(text):
-    return html.escape(text)
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-q", "--qlines", type=int, default=2, 
         help="No. of lines in question")
-    parser.add_argument("-a", "--alines", type=int, default=1, 
-        help="No. of lines in answer")
 
     args = parser.parse_args()
     qlines = args.qlines
-    alines = args.alines
 
     # Take out blank lines and escape special characters
-    poem = [escape_html(rl.strip("\"")) for rl in sys.stdin.readlines() 
-                    if len(rl.strip("\"")) > 0]
+    poem = []
+    for rl in sys.stdin:
+        rl = rl.strip()  # Remove leading and trailing whitespace
+        if rl:
+            rl = rl.encode('utf-8').decode('utf-8', 'ignore')  # Decode as UTF-8 and ignore invalid characters
+            poem.append(rl.strip("\""))  # Escape special characters and append to poem
+
 
     # The title is the first line.
     title = poem[0]
@@ -88,7 +82,7 @@ def main():
             flashcards.append(flashcard)
 
     # Open the output file with utf-8 encoding
-    with open('output.csv', 'w', newline='', encoding='utf-8') as csv_file:
+    with open('output.csv', 'w', newline='', encoding='utf-8-sig') as csv_file:
         # Use csv.writer with utf-8 encoding
         writer = csv.writer(csv_file, delimiter=',')
         # Write each flashcard as two columns: front and back
