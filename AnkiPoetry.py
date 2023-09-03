@@ -47,8 +47,6 @@ def main():
                 previous_line_empty = False  # Reset the flag to False
             poem.append(rl.strip("\""))
 
-
-
     # The title is the first line.
     title = poem[0]
     # The author is the second line.
