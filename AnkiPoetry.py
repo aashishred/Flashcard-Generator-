@@ -36,7 +36,6 @@ def main():
     # Take out blank lines and escape special characters
     poem = []
     previous_line_empty = False  # Flag variable to track empty lines
-
     for rl in sys.stdin:
         rl = rl.encode('utf-8').decode('utf-8', 'ignore')  # Decode as UTF-8 and ignore invalid characters
         if rl == "\n":
