@@ -35,11 +35,18 @@ def main():
 
     # Take out blank lines and escape special characters
     poem = []
+    previous_line_empty = False  # Flag variable to track empty lines
+
     for rl in sys.stdin:
-        rl = rl.strip()  # Remove leading and trailing whitespace
-        if rl:
-            rl = rl.encode('utf-8').decode('utf-8', 'ignore')  # Decode as UTF-8 and ignore invalid characters
-            poem.append(rl.strip("\""))  # Escape special characters and append to poem
+        rl = rl.encode('utf-8').decode('utf-8', 'ignore')  # Decode as UTF-8 and ignore invalid characters
+        if rl == "\n":
+            previous_line_empty = True  # Set the flag to True when encountering a newline
+        else:
+            if previous_line_empty:
+                poem[-1] = poem[-1].strip() + " <br>"  # Append "<br>" to the last line of the previous stanza
+                previous_line_empty = False  # Reset the flag to False
+            poem.append(rl.strip("\""))
+
 
 
     # The title is the first line.
